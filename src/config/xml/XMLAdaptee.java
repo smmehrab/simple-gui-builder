@@ -9,10 +9,13 @@
 # institute     :   university of dhaka, bangladesh
 -----------------------------------------------------
 
-Responsible for XML parsing and 
-XML --> Component conversion.
+** Adapter Design Pattern **
+
+XMLAdaptee for XMLAdapter
+(Or service provided by the XMLAdapter)
 
 */
+
 package config.xml;
 
 import org.w3c.dom.Document;
@@ -30,7 +33,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 
-public class XML {
+public class XMLAdaptee {
 
     public NodeList parse(File file) {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();

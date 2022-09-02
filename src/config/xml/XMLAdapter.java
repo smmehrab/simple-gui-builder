@@ -10,7 +10,11 @@
 -----------------------------------------------------
 
 ** Adapter Design Pattern **
-This is an adapter class for XML conig files.
+
+XMLAdapter
+
+From: XMLAdaptee (Service)
+To: ConfigReader (ClientInterface)
 
 */
 
@@ -22,18 +26,19 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import config.ConfigManager;
+import config.ConfigReader;
 import config.component.Component;
 
-public class XMLAdapter extends ConfigManager {
+public class XMLAdapter extends ConfigReader {
 
-    private XML xml = new XML();
+    private XMLAdaptee xmlAdaptee = new XMLAdaptee();
     private NodeList nodes;
     private int nodeIndex = 0;
 
-    public XMLAdapter(String[] configInfo) {
-        super(configInfo);
-        super.configFile = new File(configFilePath);
-        nodes = xml.parse(super.configFile);
+    public XMLAdapter(String path) {
+        super(path);
+        super.file = new File(path);
+        nodes = xmlAdaptee.parse(super.file);
     }
 
     @Override
@@ -45,11 +50,11 @@ public class XMLAdapter extends ConfigManager {
     public Component nextItem() {
         Node node = nodes.item(nodeIndex);
         nodeIndex++;
-        return xml.getComponent(node);
+        return xmlAdaptee.getComponent(node);
     }
 
     @Override
     public void closeFile() {
-
+        super.closeFile();
     }
 }
