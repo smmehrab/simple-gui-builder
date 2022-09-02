@@ -10,10 +10,26 @@
 -----------------------------------------------------
 */
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
 import javax.swing.*;
 
+import config.ConfigManager;
+import menu.GUIStyle;
+import menu.Menu;
+
 public class App extends JFrame {
+
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        
+        ConfigManager configManager;
+        String[] configInfo;
+        GUIStyle guiStyle;
+
+        Menu menu = new Menu();
+        configInfo = menu.selectConfigFile();
+        guiStyle = menu.selectGUIStyle();
     }
 }
