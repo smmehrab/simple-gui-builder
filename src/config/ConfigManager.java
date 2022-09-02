@@ -16,11 +16,16 @@ public class ConfigManager {
         String configType = configInfo[0];
         String configFilePath = configInfo[1];
 
-        if(configType.equals("txt")) {
-            configReader = new ConfigReader(configFilePath);
-        }
-        else if(configType.equals("xml")) {
-            configReader = new XMLAdapter(configFilePath);
+        switch(configType) {
+            case "txt":
+                configReader = new ConfigReader(configFilePath);
+                break;
+            case "xml":
+                configReader = new XMLAdapter(configFilePath);
+                break;
+            default:
+                configReader = new ConfigReader(configFilePath);
+                break;
         }
     }
 
