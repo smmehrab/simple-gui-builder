@@ -49,7 +49,7 @@ public class Menu {
 
         String[] configInfo = new String[2];
         configInfo[0] = layoutFileType;
-        configInfo[1] = layoutFileName;
+        configInfo[1] = Paths.get(layoutPath, layoutFileName).toString();
         return configInfo;
     }
 
