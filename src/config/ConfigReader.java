@@ -62,14 +62,19 @@ public class ConfigReader {
             switch(name) {
                 case "type":
                     type = ComponentType.fromString(value);
+                    break;
                 case "color":
                     color = value;
+                    break;
                 case "text":
                     text = value;
+                    break;
                 case "x":
                     x = Integer.parseInt(value);
+                    break;
                 case "y":
                     y = Integer.parseInt(value);
+                    break;
                 default:
                     break;
             }
