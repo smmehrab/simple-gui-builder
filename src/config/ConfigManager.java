@@ -1,12 +1,6 @@
 package config;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.ObjectInputFilter.Config;
-import java.util.Scanner;
-
 import config.component.Component;
-import config.component.ComponentType;
 import config.xml.XMLAdapter;
 
 public class ConfigManager {
