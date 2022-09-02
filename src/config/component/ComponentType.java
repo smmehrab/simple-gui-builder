@@ -4,5 +4,20 @@ public enum ComponentType {
     None,
     Button,
     Editbox,
-    Textbox
+    Textbox;
+
+    public static ComponentType fromString(String type) {
+        type.toLowerCase();
+        switch(type) {
+            case "button":
+                return Button;
+            case "editbox":
+                return Editbox;
+            case "textbox":
+                return Textbox;
+            default:
+                break;
+        }
+        return None;
+    }
 }
