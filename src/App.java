@@ -31,5 +31,7 @@ public class App extends JFrame {
         Menu menu = new Menu();
         configInfo = menu.selectConfigFile();
         guiStyle = menu.selectGUIStyle();
+
+        
     }
 }
