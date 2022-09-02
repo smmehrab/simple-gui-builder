@@ -6,7 +6,7 @@ public enum ComponentType {
     Editbox,
     Textbox;
 
-    public static ComponentType getComponentType(String type) {
+    public static ComponentType fromString(String type) {
         type.toLowerCase();
         switch(type) {
             case "button":
