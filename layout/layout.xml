@@ -1,29 +1,23 @@
 <?xml version="1.0"?>  
- <class>  
-        <Component>
-            <Type>Button</Type>
-            <Text>click me</Text>
-            <X>100</X>
-            <Y>50</Y>
+ <class>
+    <component>
+        <type>Button</type>
+        <text>this is a button</text>
+        <x>100</x>
+        <y>50</y>
+    </component>
 
-        </Component>
+    <component>
+        <type>EditBox</type>
+        <text>this is a editbox</text>
+        <x>150</x>
+        <y>270</y>
+    </component>
 
-    <Component>
-        <Type>TextField</Type>
-        <Text>yes textfield</Text>
-        <X>150</X>
-        <Y>270</Y>
-
-    </Component>
-
-    <Component>
-        <Type>TextArea</Type>
-        <Text>yes textarea</Text>
-        <X>70</X>
-        <Y>170</Y>
-
-    </Component>
-      
-
-      
-    </class>  
+    <component>
+        <type>TextBox</type>
+        <text>this is a textbox</text>
+        <x>70</x>
+        <y>170</y>
+    </component>
+</class>
