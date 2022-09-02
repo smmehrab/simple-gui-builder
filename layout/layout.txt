@@ -1,3 +1,3 @@
-Button-Color:Blue-Text:click me-X:100-Y:200
-TextField-Color:Blue-Text:type textField-X:100-Y:70
-TextArea-Color:Blue-Text:type  text Area-X:100-Y:270
+type:button,color:blue,text:click me,x:100,y:200
+type:editbox,color:blue,text:edit the text,x:100,y:70
+type:textbox,color:blue,text:this is a textbox,x:100,y:270
