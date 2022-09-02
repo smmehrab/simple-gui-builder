@@ -25,6 +25,10 @@ public class ConfigManager {
         }
     }
 
+    public boolean hasNextItem() {
+        return scanner.hasNextLine();
+    }
+
     public Component nextItem() {
         String componentString = scanner.nextLine();
         String[] componentAttributes = componentString.split(",");
@@ -59,10 +63,6 @@ public class ConfigManager {
 
         Component component = new Component(type, text, color, x, y);
         return component;
-    }
-
-    public boolean hasNextItem() {
-        return scanner.hasNextLine();
     }
 
     public void closeFile() {
