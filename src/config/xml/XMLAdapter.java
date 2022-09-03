@@ -25,7 +25,6 @@ import java.io.File;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import config.ConfigManager;
 import config.ConfigReader;
 import config.component.Component;
 
