@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import data.Component;
 import enums.ComponentType;
 
 public class ConfigReader {
@@ -42,16 +43,19 @@ public class ConfigReader {
         return scanner.hasNextLine();
     }
 
-    public ConfigComponent nextItem() {
+    public Component nextItem() {
         String componentString = scanner.nextLine();
         String[] componentAttributes = componentString.split(",");
         String name, value;
 
-        ComponentType type = ComponentType.None;
-        String text = "";
-        String color = "";
         int x = -1;
         int y = -1;
+        ComponentType type = ComponentType.None;
+
+        String text = "";
+        String color = "";
+        String textColor = "";
+        int textSize = 9;
 
         for(String componentAttribute : componentAttributes) {
             String[] parts = componentAttribute.split(":");
@@ -59,27 +63,38 @@ public class ConfigReader {
             value = parts[1];
 
             switch(name) {
-                case "type":
-                    type = ComponentType.fromString(value);
-                    break;
-                case "color":
-                    color = value;
-                    break;
-                case "text":
-                    text = value;
-                    break;
                 case "x":
                     x = Integer.parseInt(value);
                     break;
                 case "y":
                     y = Integer.parseInt(value);
                     break;
+                case "type":
+                    type = ComponentType.fromString(value);
+                    break;
+                case "text":
+                    text = value;
+                    break;
+                case "color":
+                    color = value;
+                    break;
+                case "text-color":
+                    textColor = value;
+                    break;
+                case "text-size":
+                    textSize = Integer.parseInt(value);
+                    textSize = (textSize==0) ? 9 : textSize;
+                    break;
                 default:
                     break;
             }
         }
 
-        ConfigComponent component = new ConfigComponent(type, text, color, x, y);
+        Component component = new Component(x, y, type);
+        component.setText(text);
+        component.setColor(color);
+        component.setColor(textColor);
+        component.setTextSize(textSize);
         return component;
     }
 
