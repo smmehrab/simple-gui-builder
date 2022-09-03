@@ -25,6 +25,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import config.ConfigComponent;
+import data.Component;
 import enums.ComponentType;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -61,27 +62,41 @@ public class XMLAdaptee {
         return nodeList;
     }
 
-    public ConfigComponent getComponent(Node node) {
-        ComponentType type = ComponentType.None;
-        String text = "";
-        String color = "";
+    public Component getComponent(Node node) {
         int x = -1;
         int y = -1;
+        ComponentType type = ComponentType.None;
+
+        String text = "";
+        String color = "";
+        String textColor = "";
+        int textSize = 9;
         
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element eElement = (Element) node;
             // Debug
-            // System.out.println("type: "+ eElement.getElementsByTagName("type").item(0).getTextContent());
-            // System.out.println("text: "+ eElement.getElementsByTagName("text").item(0).getTextContent());
-            // System.out.println("   x: "+ eElement.getElementsByTagName("x").item(0).getTextContent());
-            // System.out.println("   y: "+ eElement.getElementsByTagName("y").item(0).getTextContent());
-            type = ComponentType.fromString(eElement.getElementsByTagName("type").item(0).getTextContent());
-            text = eElement.getElementsByTagName("text").item(0).getTextContent();
+            // System.out.println("x           : "+ eElement.getElementsByTagName("x").item(0).getTextContent());
+            // System.out.println("y           : "+ eElement.getElementsByTagName("y").item(0).getTextContent());
+            // System.out.println("type        : "+ eElement.getElementsByTagName("type").item(0).getTextContent());
+            // System.out.println("text        : "+ eElement.getElementsByTagName("text").item(0).getTextContent());
+            // System.out.println("color       : "+ eElement.getElementsByTagName("color").item(0).getTextContent());
+            // System.out.println("text-color  : "+ eElement.getElementsByTagName("text-color").item(0).getTextContent());
+            // System.out.println("text-size   : "+ eElement.getElementsByTagName("text-size").item(0).getTextContent());
+
             x = Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent());
             y = Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent());
+            type = ComponentType.fromString(eElement.getElementsByTagName("type").item(0).getTextContent());
+            text = eElement.getElementsByTagName("text").item(0).getTextContent();
+            color = eElement.getElementsByTagName("color").item(0).getTextContent();
+            textColor = eElement.getElementsByTagName("text-color").item(0).getTextContent();
+            textSize = Integer.parseInt(eElement.getElementsByTagName("text-size").item(0).getTextContent());
         }
 
-        ConfigComponent component = new ConfigComponent(type, text, color, x, y);
+        Component component = new Component(x, y, type);
+        component.setText(text);
+        component.setColor(color);
+        component.setColor(textColor);
+        component.setTextSize(textSize);
         return component;
     }
 }
