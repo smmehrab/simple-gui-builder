@@ -1,6 +1,7 @@
 package config;
 
 import config.xml.XMLAdapter;
+import data.Component;
 
 public class ConfigManager {
     protected ConfigReader configReader;
@@ -26,7 +27,7 @@ public class ConfigManager {
         return configReader.hasNextItem();
     }
 
-    public ConfigComponent nextItem() {
+    public Component nextItem() {
         return configReader.nextItem();
     }
 
