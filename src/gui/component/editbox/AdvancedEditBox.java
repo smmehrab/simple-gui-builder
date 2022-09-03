@@ -1,4 +1,4 @@
-package gui.components.editbox;
+package gui.component.editbox;
 
 public class AdvancedEditBox {
     

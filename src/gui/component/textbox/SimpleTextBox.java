@@ -1,4 +1,4 @@
-package gui.components.textbox;
+package gui.component.textbox;
 
 public class SimpleTextBox {
     

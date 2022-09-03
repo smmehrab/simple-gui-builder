@@ -29,10 +29,17 @@ import javax.swing.plaf.DimensionUIResource;
 import javax.swing.text.FlowView;
 
 import config.ConfigManager;
+import gui.factory.GUIFactory;
 
 public class WindowManager{
-
     private static WindowManager instance;
+
+    public static JFrame window = new JFrame("Simple GUI Builder"); 
+    public static JPanel windowPanel = new JPanel();
+
+    private GUIFactory guiFactory;
+    private Component[] guiComponents = new Component[10];
+    private Integer guiComponentIndex = 0; 
 
     private WindowManager() {}
     
@@ -42,8 +49,20 @@ public class WindowManager{
         return instance;
     }
 
-    public void loadUI(ConfigManager configManager) {
+    public void loadUI(ConfigManager config) {
+        // while(configManager.hasNextItem()) {
 
+        //     guiComponents[guiComponentIndex] = configManager.nextItem();
+
+        //     //System.out.println(components[componentIndex].getX()+" "+components[componentIndex].getY()+" "+components[componentIndex].getType()+" "+components[componentIndex].getText()+" ");
+
+        //     guiFactory.createComponent(guiComponents[guiComponentIndex]); 
+        //     //System.out.println(designStyle.ui_components[componentIndex].text);
+
+        //     guiComponentIndex += 1;
+        // }
+        // config.closeFile();
+        // guiFactory.changeAttribute();
     }
     
     public void launchWindow() {

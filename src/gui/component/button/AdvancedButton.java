@@ -1,4 +1,4 @@
-package gui.components.button;
+package gui.component.button;
 
 public class AdvancedButton {
     
