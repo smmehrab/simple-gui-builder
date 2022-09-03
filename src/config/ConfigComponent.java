@@ -1,13 +1,24 @@
-package config.component;
+package config;
 
-public class Component {
+import enums.ComponentType;
+
+public class ConfigComponent {
     private ComponentType type;
     private String text;
-    private String color; 
+    private String color;
     private int x;
     private int y;
-    
-    public Component(ComponentType type, String text, String color, int x, int y) {
+    private int textSize;
+
+    public ConfigComponent(ComponentType type, String text, String color, int x, int y) {
+        this.type = type;
+        this.text = text;
+        this.color = color;
+        this.x = x;
+        this.y = y;
+    }
+
+    public ConfigComponent(ComponentType type, String text, String color, int x, int y, int textSize) {
         this.type = type;
         this.text = text;
         this.color = color;
@@ -53,5 +64,13 @@ public class Component {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getTextSize() {
+        return textSize;
+    }
+
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
     }
 }

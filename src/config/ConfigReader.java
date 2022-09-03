@@ -22,8 +22,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import config.component.Component;
-import config.component.ComponentType;
+import enums.ComponentType;
 
 public class ConfigReader {
     protected File file;
@@ -43,7 +42,7 @@ public class ConfigReader {
         return scanner.hasNextLine();
     }
 
-    public Component nextItem() {
+    public ConfigComponent nextItem() {
         String componentString = scanner.nextLine();
         String[] componentAttributes = componentString.split(",");
         String name, value;
@@ -80,7 +79,7 @@ public class ConfigReader {
             }
         }
 
-        Component component = new Component(type, text, color, x, y);
+        ConfigComponent component = new ConfigComponent(type, text, color, x, y);
         return component;
     }
 

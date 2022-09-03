@@ -24,8 +24,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import config.component.Component;
-import config.component.ComponentType;
+import config.ConfigComponent;
+import enums.ComponentType;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -61,7 +61,7 @@ public class XMLAdaptee {
         return nodeList;
     }
 
-    public Component getComponent(Node node) {
+    public ConfigComponent getComponent(Node node) {
         ComponentType type = ComponentType.None;
         String text = "";
         String color = "";
@@ -81,7 +81,7 @@ public class XMLAdaptee {
             y = Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent());
         }
 
-        Component component = new Component(type, text, color, x, y);
+        ConfigComponent component = new ConfigComponent(type, text, color, x, y);
         return component;
     }
 }
