@@ -1,23 +1,26 @@
 package config.component;
 
 public enum ComponentType {
-    None,
-    Button,
-    Editbox,
-    Textbox;
+    Button("button"),
+    Editbox("editbox"),
+    Textbox("textbox"),
+    None("");
 
-    public static ComponentType fromString(String type) {
-        type.toLowerCase();
-        switch(type) {
-            case "button":
-                return Button;
-            case "editbox":
-                return Editbox;
-            case "textbox":
-                return Textbox;
-            default:
-                break;
+    private String text;
+    ComponentType(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public static ComponentType fromString(String text) {
+        for (ComponentType componentType : ComponentType.values()) {
+            if (componentType.text.equalsIgnoreCase(text)) {
+                return componentType;
+            }
         }
-        return None;
+        return null;
     }
 }
