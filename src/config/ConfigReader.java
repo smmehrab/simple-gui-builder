@@ -93,7 +93,7 @@ public class ConfigReader {
         Component component = new Component(x, y, type);
         component.setText(text);
         component.setColor(color);
-        component.setColor(textColor);
+        component.setTextColor(textColor);
         component.setTextSize(textSize);
         return component;
     }
