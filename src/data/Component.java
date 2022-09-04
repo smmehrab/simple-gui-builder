@@ -12,14 +12,16 @@ public class Component {
     protected Color color;
     protected Color textColor;
     protected int textSize;
+    private Color defaultColor = new Color(0, 0, 0);
+    private Color defaultTextColor = new Color(255, 255, 255);
 
     public Component(int x, int y, ComponentType type) {
         this.x = x;
         this.y = y;
         this.type = type;
         this.text = "";
-        this.color = hexToRGBColor("#ffffff");
-        this.textColor = hexToRGBColor("#000000");
+        this.color = this.defaultColor;
+        this.textColor = this.defaultTextColor;
         this.textSize = 9;
     }
 
@@ -73,12 +75,20 @@ public class Component {
         this.color = color;
     }
 
+    public void setColor(String colorString) {
+        this.color = colorString.isEmpty() ? defaultColor : hexToRGBColor(colorString);
+    }
+
     public Color getTextColor() {
         return textColor;
     }
 
     public void setTextColor(Color textColor) {
         this.textColor = textColor;
+    }
+
+    public void setTextColor(String colorString) {
+        this.textColor = colorString.isEmpty() ? defaultTextColor : hexToRGBColor(colorString);
     }
 
     public int getTextSize() {
@@ -89,10 +99,10 @@ public class Component {
         this.textSize = textSize;
     }
 
-    public static Color hexToRGBColor(String colorStr) {
+    public static Color hexToRGBColor(String colorString) {
         return new Color(
-                Integer.valueOf( colorStr.substring( 1, 3 ), 16 ),
-                Integer.valueOf( colorStr.substring( 3, 5 ), 16 ),
-                Integer.valueOf( colorStr.substring( 5, 7 ), 16 ));
+                Integer.valueOf( colorString.substring( 1, 3 ), 16 ),
+                Integer.valueOf( colorString.substring( 3, 5 ), 16 ),
+                Integer.valueOf( colorString.substring( 5, 7 ), 16 ));
     }
 }
