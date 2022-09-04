@@ -86,10 +86,22 @@ public class XMLAdaptee {
             x = Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent());
             y = Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent());
             type = ComponentType.fromString(eElement.getElementsByTagName("type").item(0).getTextContent());
-            text = eElement.getElementsByTagName("text").item(0).getTextContent();
-            color = eElement.getElementsByTagName("color").item(0).getTextContent();
-            textColor = eElement.getElementsByTagName("text-color").item(0).getTextContent();
-            textSize = Integer.parseInt(eElement.getElementsByTagName("text-size").item(0).getTextContent());
+            
+            if(eElement.getElementsByTagName("text").getLength()!=0) {
+                text = eElement.getElementsByTagName("text").item(0).getTextContent();
+            }
+            
+            if(eElement.getElementsByTagName("color").getLength()!=0) {
+                color = eElement.getElementsByTagName("color").item(0).getTextContent();
+            }
+
+            if(eElement.getElementsByTagName("text-color").getLength()!=0) {
+                textColor = eElement.getElementsByTagName("text-color").item(0).getTextContent();
+            }
+
+            if(eElement.getElementsByTagName("text-size").getLength()!=0) {
+                textSize = Integer.parseInt(eElement.getElementsByTagName("text-size").item(0).getTextContent());
+            }
         }
 
         Component component = new Component(x, y, type);
