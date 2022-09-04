@@ -17,8 +17,10 @@ Entry Point (Application)
 import javax.swing.*;
 
 import config.ConfigManager;
-import config.component.Component;
-import menu.GUIStyle;
+import data.Component;
+import enums.GUIStyle;
+import gui.WindowManager;
+// import gui.WindowManager;
 import menu.Menu;
 
 public class App extends JFrame {
@@ -34,17 +36,24 @@ public class App extends JFrame {
         guiStyle = menu.selectGUIStyle();
 
         config = new ConfigManager(configInfo);
-        while(config.hasNextItem()) {
-            Component component = config.nextItem();
-            System.out.println(component.getX()+" "+component.getY()+" "+component.getType()+" "+component.getText()+" ");
-        }
-        config.closeFile();
 
-        // WindowManager windowManager = WindowManager.getInstance(); 
-        // windowManager.launchWindow();
-        // windowManager.initializeDesignStyle(choice); // select design style
-        // windowManager.initializeFram(); // initialize the frame ( java swing frame )
-        // windowManager.loadUI(config); // load from file, the objects , create objects
-        // windowManager.startUI(); // show the objects added from the file
+        // Debug
+        // while(config.hasNextItem()) {
+        //     Component component = config.nextItem();
+        //     System.out.println("x           : " + component.getX());
+        //     System.out.println("y           : " + component.getY());
+        //     System.out.println("type        : " + component.getType());
+        //     System.out.println("text        : " + component.getText());
+        //     System.out.println("color       : " + component.getColor().toString());
+        //     System.out.println("textColor   : " + component.getTextColor().toString());
+        //     System.out.println("textSize    : " + component.getTextSize());
+        // }
+        // config.closeFile();
+
+        WindowManager windowManager = WindowManager.getInstance();
+        windowManager.selectGUIStyle(guiStyle);
+        windowManager.loadUI(config);
+        // windowManager.designStyle(guiStyle);
+        windowManager.launchWindow();
     }
 }
