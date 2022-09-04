@@ -24,7 +24,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import config.ConfigComponent;
 import data.Component;
 import enums.ComponentType;
 

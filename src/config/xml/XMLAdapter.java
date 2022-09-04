@@ -25,8 +25,8 @@ import java.io.File;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import config.ConfigComponent;
 import config.ConfigReader;
+import data.Component;
 
 public class XMLAdapter extends ConfigReader {
 
@@ -46,7 +46,7 @@ public class XMLAdapter extends ConfigReader {
     }
 
     @Override
-    public ConfigComponent nextItem() {
+    public Component nextItem() {
         Node node = nodes.item(nodeIndex);
         nodeIndex++;
         return xmlAdaptee.getComponent(node);
