@@ -26,8 +26,16 @@ public class SimpleTextBox extends TextBox {
 
     @Override
     public void modify(String type, String value) {
-        // TODO Auto-generated method stub
-        
+        switch(type) {
+            case "color":
+                super.textbox.setBackground(Component.hexToRGBColor(value));
+                break;
+            case "text-color":
+                super.textbox.setForeground(Component.hexToRGBColor(value));
+                break;
+            default:
+                break;
+        }        
     }
 
     @Override

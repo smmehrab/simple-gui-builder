@@ -26,8 +26,16 @@ public class SimpleEditBox extends EditBox {
 
     @Override
     public void modify(String type, String value) {
-        // TODO Auto-generated method stub
-        
+        switch(type) {
+            case "color":
+                super.editBox.setBackground(Component.hexToRGBColor(value));
+                break;
+            case "text-color":
+                super.editBox.setForeground(Component.hexToRGBColor(value));
+                break;
+            default:
+                break;
+        }        
     }
 
     @Override

@@ -18,17 +18,6 @@ package gui;
 import java.awt.*;
 import javax.swing.*;
 
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.util.ArrayList;
-import java.util.jar.JarEntry;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.plaf.DimensionUIResource;
-import javax.swing.text.FlowView;
-
 import config.ConfigManager;
 import data.Component;
 import enums.GUIStyle;

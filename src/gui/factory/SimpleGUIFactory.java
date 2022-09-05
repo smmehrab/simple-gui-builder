@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 import data.Component;
 import enums.ComponentType;
-import gui.WindowManager;
-import gui.component.GUIComponent;
 import gui.component.button.SimpleButton;
 import gui.component.editbox.SimpleEditBox;
 import gui.component.textbox.SimpleTextBox;
@@ -57,7 +55,7 @@ public class SimpleGUIFactory extends GUIFactory {
                 componentIndex = scannerSimple.nextInt()-1;
 
                 System.out.println("> [SELECTED] " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
-                System.out.println("> Modify " + super.components.get(componentIndex).getType().toString() + " " + componentIndex + ":");
+                System.out.println("> Modify " + super.components.get(componentIndex).getType().toString() + " \"" + super.components.get(componentIndex).getText() + "\":");
 
                 option = 1;
                 for(String modifyOption : modifyOptions) {
@@ -80,8 +78,9 @@ public class SimpleGUIFactory extends GUIFactory {
                 color = scannerSimple.next();
 
                 if(!color.isEmpty()) {
-                    System.out.println(modifyOptions.get(option) + " " + color + " " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
+                    // System.out.println(modifyOptions.get(option) + " " + color + " " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
                     super.components.get(componentIndex).modify(modifyOptions.get(option), color);
+                    System.out.println("> [MODIFIED]");
                 }
                 else {
                     color = "";

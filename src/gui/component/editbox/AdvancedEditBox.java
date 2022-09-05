@@ -25,13 +25,26 @@ public class AdvancedEditBox extends EditBox {
 
     @Override
     public void modify(String type, String value) {
-        // TODO Auto-generated method stub
-        
+        switch(type) {
+            case "color":
+                super.editBox.setBackground(Component.hexToRGBColor(value));
+                break;
+            case "text-color":
+                super.editBox.setForeground(Component.hexToRGBColor(value));
+                break;
+            default:
+                break;
+        }        
     }
 
     @Override
     public void modify(String type, int value) {
-        // TODO Auto-generated method stub
-        
+        switch(type) {
+            case "text-size":
+                super.editBox.setFont(new Font("Serif", Font.PLAIN, value));
+                break;
+            default:
+                break;
+        }        
     }
 }

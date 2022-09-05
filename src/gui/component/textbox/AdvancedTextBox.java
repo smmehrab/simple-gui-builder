@@ -26,13 +26,26 @@ public class AdvancedTextBox extends TextBox {
 
     @Override
     public void modify(String type, String value) {
-        // TODO Auto-generated method stub
-        
+        switch(type) {
+            case "color":
+                super.textbox.setBackground(Component.hexToRGBColor(value));
+                break;
+            case "text-color":
+                super.textbox.setForeground(Component.hexToRGBColor(value));
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
     public void modify(String type, int value) {
-        // TODO Auto-generated method stub
-        
+        switch(type) {
+            case "text-size":
+                super.textbox.setFont(new Font("Serif", Font.PLAIN, value));
+                break;
+            default:
+                break;
+        }        
     }
 }

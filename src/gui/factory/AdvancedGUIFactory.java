@@ -59,7 +59,7 @@ public class AdvancedGUIFactory extends GUIFactory{
                 componentIndex = scannerAdvanced.nextInt()-1;
 
                 System.out.println("> [SELECTED] " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
-                System.out.println("> Modify " + super.components.get(componentIndex).getType().toString() + " " + componentIndex + ":");
+                System.out.println("> Modify " + super.components.get(componentIndex).getType().toString() + " \"" + super.components.get(componentIndex).getText() + "\"" + ":");
 
                 option = 1;
                 for(String modifyOption : modifyOptions) {
@@ -81,8 +81,9 @@ public class AdvancedGUIFactory extends GUIFactory{
                     System.out.print("> ");
                     textSize = scannerAdvanced.nextInt();
 
-                    System.out.println(modifyOptions.get(option) + " " + textSize + " " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
+                    // System.out.println(modifyOptions.get(option) + " " + textSize + " " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
                     super.components.get(componentIndex).modify(modifyOptions.get(option), textSize);
+                    System.out.println("> [MODIFIED]");
                 }
                 else {
                     System.out.println("> Enter New Color: [#rrggbb]");
@@ -91,8 +92,9 @@ public class AdvancedGUIFactory extends GUIFactory{
                     color = scannerAdvanced.next();
     
                     if(!color.isEmpty()) {
-                        System.out.println(modifyOptions.get(option) + " " + color + " " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
+                        // System.out.println(modifyOptions.get(option) + " " + color + " " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
                         super.components.get(componentIndex).modify(modifyOptions.get(option), color);
+                        System.out.println("> [MODIFIED]");
                     }
                     else {
                         color = "";
