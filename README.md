@@ -46,4 +46,6 @@ create several items during the runtime programmatically.
 
 The class diagram that's designed to solve the above problem, is given below:
 
-![Class Diagram](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Class Diagram](class-diagram.png)
+
+Note that, this is just a rough solution. I hope to further work on it later and modify it for better. 
