@@ -1,14 +1,27 @@
 package gui.factory;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 import data.Component;
 import enums.ComponentType;
+import gui.WindowManager;
+import gui.component.GUIComponent;
 import gui.component.button.SimpleButton;
 import gui.component.editbox.SimpleEditBox;
 import gui.component.textbox.SimpleTextBox;
 
 public class SimpleGUIFactory extends GUIFactory {
     
-    int changeIndex;
+    int componentIndex;
+
+    ArrayList<String> modifyOptions = new ArrayList<String>(
+        Arrays.asList(
+                    "color",
+                    "text-color"
+                    )
+    );
 
     public void produce(Component component) {
         if(component.getType() == ComponentType.Button) {
@@ -23,35 +36,61 @@ public class SimpleGUIFactory extends GUIFactory {
     }
 
     public void modify() {
-        // Scanner scanner1 = new Scanner(System.in);
-        // // let user change till he wants, then create the UI
-        // while (true) {
-        //     // if the user want to change anything
-        //     System.out.println("Change anything ? \n1.Change\n2.Exit");
-        //     int choice = scanner1.nextInt();
-        //     if(choice==1) {
+        Scanner scanner1 = new Scanner(System.in);
+        
+        while (true) {
+            System.out.println("> Select Action:");
+            System.out.println("  1: Modify");
+            // System.out.println("  2: Exit");
 
-        //         // which element user want to change
-        //         System.out.println("Which element want to change ?\nEnter Element no : ");
-        //         changeIndex = scanner1.nextInt(); // index of the changeable element
-        //         //scanner1.nextLine();
-        //         // clarify element to be changed
-        //         System.out.println("change " + ui_components[changeIndex].type + " " + changeIndex + " Color :\nEnter RGB value : ");
-        //         // change the color
-        //         System.out.print("red : ");
-        //         int r = scanner1.nextInt();
-        //         System.out.print("Green : ");
-        //         int g = scanner1.nextInt();
-        //         System.out.print("Blue : ");
-        //         int b = scanner1.nextInt();
+            System.out.print("> ");
+            int choice = scanner1.nextInt();
+            
+            String color = "";
+            int option = 0;
+            int optionCount;
 
-        //         ui_components[changeIndex].changeColor(r,g,b);
-        //     }
-        //     else
-        //     {
-        //         break;
-        //     }
-        // }
+            if(choice==1) {
+                System.out.println("> Enter Component No.: [Starts from 1]");
+
+                System.out.print("> ");
+                componentIndex = scanner1.nextInt()-1;
+
+                System.out.println("> [SELECTED] " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
+                System.out.println("> Modify " + super.components.get(componentIndex).getType().toString() + " " + componentIndex + ":");
+
+                option = 1;
+                for(String modifyOption : modifyOptions) {
+                    System.out.println("  " + option + " " + modifyOption);
+                    option++;
+                }
+                System.out.println("  " + option + " " + "Cancel");
+                optionCount = option-1;
+
+                System.out.print("> ");
+                option = scanner1.nextInt()-1;
+
+                if(option == optionCount) {
+                    continue;
+                }
+
+                System.out.println("> Enter New Color: [#rrggbb]");
+
+                System.out.print("> ");
+                color = scanner1.next();
+
+                if(!color.isEmpty()) {
+                    System.out.println(modifyOptions.get(option) + " " + color + " " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
+                    super.components.get(componentIndex).modify(modifyOptions.get(option), color);
+                }
+                else {
+                    color = "";
+                }
+            }
+            else {
+                break;
+            }
+        }
     }
 
 }

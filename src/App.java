@@ -53,7 +53,6 @@ public class App extends JFrame {
         WindowManager windowManager = WindowManager.getInstance();
         windowManager.selectGUIStyle(guiStyle);
         windowManager.loadUI(config);
-        // windowManager.designStyle(guiStyle);
         windowManager.launchWindow();
     }
 }

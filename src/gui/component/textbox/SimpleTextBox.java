@@ -23,4 +23,16 @@ public class SimpleTextBox extends TextBox {
         super.textbox.setEditable(false);
         WindowManager.getInstance().getCanvas().add(super.textbox);
     }
+
+    @Override
+    public void modify(String type, String value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void modify(String type, int value) {
+        // TODO Auto-generated method stub
+        
+    }
 }

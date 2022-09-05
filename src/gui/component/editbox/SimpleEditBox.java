@@ -23,4 +23,16 @@ public class SimpleEditBox extends EditBox {
         super.editBox.setEditable(true);
         WindowManager.getInstance().getCanvas().add(super.editBox);
     }
+
+    @Override
+    public void modify(String type, String value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void modify(String type, int value) {
+        // TODO Auto-generated method stub
+        
+    }
 }

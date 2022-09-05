@@ -1,5 +1,8 @@
 package gui.factory;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import data.Component;
 import enums.ComponentType;
 import gui.component.button.AdvancedButton;
@@ -7,6 +10,16 @@ import gui.component.editbox.AdvancedEditBox;
 import gui.component.textbox.AdvancedTextBox;
 
 public class AdvancedGUIFactory extends GUIFactory{
+
+    int componentIndex;
+
+    ArrayList<String> modifyOptions = new ArrayList<String>(
+        Arrays.asList(
+                    "color",
+                    "text-color",
+                    "text-size"
+                    )
+    );
 
     @Override
     public void produce(Component component) {

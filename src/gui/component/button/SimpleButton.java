@@ -29,4 +29,24 @@ public class SimpleButton extends Button {
         // TODO
         
     }
+
+    @Override
+    public void modify(String type, String value) {
+        switch(type) {
+            case "color":
+                super.button.setBackground(Component.hexToRGBColor(value));
+                break;
+            case "text-color":
+                super.button.setForeground(Component.hexToRGBColor(value));
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void modify(String type, int value) {
+        // TODO Auto-generated method stub
+        
+    }
 }

@@ -9,4 +9,6 @@ public abstract class GUIComponent extends Component {
     }
 
     public abstract void render();
+    public abstract void modify(String type, String value);
+    public abstract void modify(String type, int value);
 }

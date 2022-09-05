@@ -18,7 +18,6 @@ package gui;
 import java.awt.*;
 import javax.swing.*;
 
-import java.awt.GraphicsDevice;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
@@ -70,7 +69,6 @@ public class WindowManager{
             guiFactory.produce(component);
         }
         config.closeFile();
-        guiFactory.modify();
     }
     
     public void launchWindow() {
@@ -87,7 +85,18 @@ public class WindowManager{
 
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setResizable(false);
-        window.setVisible(true); 
+        window.setVisible(true);
+        System.out.println("> [LAUNCHED WINDOW]");
+        guiFactory.modify();
+    }
+
+    public void closeWindow() {
+        window.dispose();
+    }
+
+    public void resetWindow() {
+        this.closeWindow();
+        this.launchWindow();
     }
 
     public JPanel getCanvas() {
