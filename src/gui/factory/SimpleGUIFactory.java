@@ -36,15 +36,15 @@ public class SimpleGUIFactory extends GUIFactory {
     }
 
     public void modify() {
-        Scanner scanner1 = new Scanner(System.in);
+        Scanner scannerSimple = new Scanner(System.in);
         
         while (true) {
             System.out.println("> Select Action:");
             System.out.println("  1: Modify");
-            // System.out.println("  2: Exit");
+            System.out.println("  2: Exit");
 
             System.out.print("> ");
-            int choice = scanner1.nextInt();
+            int choice = scannerSimple.nextInt();
             
             String color = "";
             int option = 0;
@@ -54,7 +54,7 @@ public class SimpleGUIFactory extends GUIFactory {
                 System.out.println("> Enter Component No.: [Starts from 1]");
 
                 System.out.print("> ");
-                componentIndex = scanner1.nextInt()-1;
+                componentIndex = scannerSimple.nextInt()-1;
 
                 System.out.println("> [SELECTED] " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
                 System.out.println("> Modify " + super.components.get(componentIndex).getType().toString() + " " + componentIndex + ":");
@@ -68,7 +68,7 @@ public class SimpleGUIFactory extends GUIFactory {
                 optionCount = option-1;
 
                 System.out.print("> ");
-                option = scanner1.nextInt()-1;
+                option = scannerSimple.nextInt()-1;
 
                 if(option == optionCount) {
                     continue;
@@ -77,7 +77,7 @@ public class SimpleGUIFactory extends GUIFactory {
                 System.out.println("> Enter New Color: [#rrggbb]");
 
                 System.out.print("> ");
-                color = scanner1.next();
+                color = scannerSimple.next();
 
                 if(!color.isEmpty()) {
                     System.out.println(modifyOptions.get(option) + " " + color + " " + super.components.get(componentIndex).getType().toString() + " " + componentIndex);
@@ -86,6 +86,9 @@ public class SimpleGUIFactory extends GUIFactory {
                 else {
                     color = "";
                 }
+            }
+            else if(choice == 2) {
+                System.exit(0);
             }
             else {
                 break;

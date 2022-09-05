@@ -47,7 +47,7 @@ public class AdvancedButton extends Button {
     public void modify(String type, int value) {
         switch(type) {
             case "text-size":
-                super.button.setFont(new Font("Serif", Font.PLAIN, textSize));
+                super.button.setFont(new Font("Serif", Font.PLAIN, value));
                 break;
             default:
                 break;
